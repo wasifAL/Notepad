@@ -14,12 +14,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//new action trigger definition
 void MainWindow::on_actionNew_triggered()
 {
     currentFile.clear();
     ui->textEdit->setText(QString());
 }
 
+//open action trigger definition
 void MainWindow::on_actionOpen_triggered()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open the file");
@@ -35,6 +37,7 @@ void MainWindow::on_actionOpen_triggered()
     file.close();
 }
 
+//save as action trigger definition
 void MainWindow::on_actionSave_as_triggered()
 {
     QString fileName = QFileDialog::getSaveFileName(this,"Save as");
@@ -50,6 +53,7 @@ void MainWindow::on_actionSave_as_triggered()
     file.close();
 }
 
+//print action trigger definition
 void MainWindow::on_actionPrint_triggered()
 {
     QPrinter printer;
@@ -64,22 +68,38 @@ void MainWindow::on_actionPrint_triggered()
     ui->textEdit->print(&printer);
 }
 
+//copy action trigger definition
 void MainWindow::on_actionCopy_triggered()
 {
     ui->textEdit->copy();
 }
 
+//paste action trigger definition
 void MainWindow::on_actionPaste_triggered()
 {
     ui->textEdit->paste();
 }
 
+//cut action trigger definition
 void MainWindow::on_actionCut_triggered()
 {
     ui->textEdit->cut();
 }
 
+//exit action trigger definition
 void MainWindow::on_actionExit_triggered()
 {
     QApplication::quit();
+}
+
+//undo action trigger definition
+void MainWindow::on_actionUndo_triggered()
+{
+    ui->textEdit->undo();
+}
+
+//redo action trigger definition
+void MainWindow::on_actionRedo_triggered()
+{
+    ui->textEdit->redo();
 }
